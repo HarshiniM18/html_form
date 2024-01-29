@@ -1,0 +1,13 @@
+.container{
+    background-color: rgb(252, 148, 165);
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+.btn{
+    color: white;
+    justify-content: center;
+    text-align: center;
+    height: 40px;
+    width: 100px ;
+}
