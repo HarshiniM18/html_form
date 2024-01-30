@@ -1,7 +1,7 @@
 function submitForm() {
     var formData = {
-      firstName: document.getElementById('firstName').value,
-      lastName: document.getElementById('lastName').value,
+      firstName: document.getElementById('first-Name').value,
+      lastName: document.getElementById('last-Name').value,
       address: document.getElementById('address').value,
       pincode: document.getElementById('pincode').value,
       gender: document.getElementById('gender').value,
