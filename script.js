@@ -1,29 +1,21 @@
-function submitForm() {
-    var formData = {
-      firstName: document.getElementById('first-Name').value,
-      lastName: document.getElementById('last-Name').value,
-      address: document.getElementById('address').value,
-      pincode: document.getElementById('pincode').value,
-      gender: document.getElementById('gender').value,
-      foodChoices: Array.from(document.getElementById('foodChoices').selectedOptions).map(option => option.value),
-      state: document.getElementById('state').value,
-      country: document.getElementById('country').value,
-    };
+document.getElementById('myForm').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-    // Validate at least 2 food choices selected
-    if (formData.foodChoices.length < 2) {
-      alert("Please select at least 2 food choices.");
-      return;
-    }
+    // Get form values
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const address = document.getElementById('address').value;
+    const pincode = document.getElementById('pincode').value;
+    const gender = document.getElementById('gender').value;
+    const food = Array.from(document.getElementById('food').selectedOptions).map(option => option.value);
+    const state = document.getElementById('state').value;
+    const country = document.getElementById('country').value;
 
-    // Append data to the table
-    var tableBody = document.getElementById('dataTableBody');
-    var newRow = tableBody.insertRow(tableBody.rows.length);
-    for (var key in formData) {
-      var cell = newRow.insertCell();
-      cell.appendChild(document.createTextNode(formData[key]));
-    }
+    // Append values to the table
+    const tableBody = document.getElementById('dataTableBody');
+    const newRow = tableBody.insertRow();
+    newRow.innerHTML = `<td>${firstName}</td><td>${lastName}</td><td>${address}</td><td>${pincode}</td><td>${gender}</td><td>${food.join(',')}</td><td>${state}</td><td>${country}</td>`;
 
-    // Clear the form fields
+    // Clear form fields
     document.getElementById('myForm').reset();
-  }
+  });
